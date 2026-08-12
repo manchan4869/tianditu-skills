@@ -4,13 +4,6 @@ description: 天地图瓦片地图服务（OGC WMTS）综合指南。支持 8 �
 version: 1.0.0
 license: MIT
 homepage: http://lbs.tianditu.gov.cn/server/MapService.html
-metadata:
-  openclaw:
-    requires:
-      bins: ["curl"]
-      env:
-        - TIANDITU_KEY
-    primaryEnv: TIANDITU_KEY
 ---
 
 # 天地图瓦片地图服务 Skill

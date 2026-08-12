@@ -4,13 +4,6 @@ description: 天地图 Web 服务 API 综合指南（零依赖 curl）。支持�
 version: 1.0.0
 license: MIT
 homepage: https://lbs.tianditu.gov.cn
-metadata:
-  openclaw:
-    requires:
-      bins: ["curl"]
-      env:
-        - TIANDITU_KEY
-    primaryEnv: TIANDITU_KEY
 ---
 
 # 天地图 Web 服务 API 综合 Skill
