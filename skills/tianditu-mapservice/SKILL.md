@@ -80,7 +80,7 @@ curl -s -o tile.png "http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=G
 
 ## 注意事项
 
-- **Key 统一用「服务端」类型**（与 Web 服务 API 相同）：瓦片服务也需要 `tk` 参数。若用浏览器端 Key 调用，返回 `301012 权限类型错误`（实测：服务端 Key 拉瓦片 HTTP 200，浏览器端 Key 403）
+- **Key 类型与调用场景匹配（实测由 User-Agent 判定）**：curl/QGIS 等服务端调用用**服务端** Key；浏览器网页用**浏览器端** Key。交叉使用报 301012（浏览器端 Key + curl）或 403（服务端 Key + 浏览器 UA）。实测矩阵见 `references/wmts.md`
 - 经纬度投影(_c)用 CGCS2000（EPSG:4490，与 WGS-84 基本一致）；墨卡托(_w)是 EPSG:3857。**不要与高德 GCJ-02 混用**
 - 部分图层（如影像注记）需与对应底图叠加使用
 - 调用量有配额限制，控制台可升级；生产环境注意缓存瓦片
