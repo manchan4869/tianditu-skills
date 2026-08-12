@@ -1,48 +1,30 @@
-# 天地图 Web 服务 API Skill
+# 天地图 Agent Skills
 
-[![skills.sh](https://skills.sh/b/manchan4869/tianditu-webapi)](https://skills.sh/manchan4869/tianditu-webapi/tianditu-webapi)
+[![skills.sh](https://skills.sh/b/manchan4869/tianditu-skills)](https://skills.sh/manchan4869/tianditu-skills)
 
-天地图（国家地理信息公共服务平台）Web 服务 API 的 Agent Skill。零运行时依赖，仅使用 `curl` 调用 REST API。
+天地图（国家地理信息公共服务平台）Agent Skills 集合。零运行时依赖，仅使用 `curl` 调用 REST API。
 
-## 功能
+## Skills
 
-- 🔍 地名搜索 V2.0 八种查询：普通(1)、地名(7)、视野内(2)、周边(3)、多边形(10)、行政区划区域(12)、数据分类(13)、统计(14)
-- 🛣️ 驾车规划（最快/最短/避开高速/步行，支持途经点；响应为 XML，附转换脚本）
-- 🚌 公交规划（较快捷/少换乘/少步行/不坐地铁）+ 公交站/线路详情 + 返程线路查询
-- 📍 地理编码（地址→坐标）与逆地理编码（坐标→地址）
-- 🏛️ 行政区划 V2.0（层级/中心点/轮廓边界/国标码）
-- 🗺️ 静态地图图片（标注/折线/面/自定义图标/底图叠加）
-
-## 安装
-
-```bash
-npx skills add manchan4869/tianditu-webapi
-```
-
-或手动将本仓库的 `tianditu-webapi` 目录放入你的 skills 目录（如 `~/.agents/skills/`）。
+| Skill | 功能 | 安装 |
+|-------|------|------|
+| [**tianditu-webapi**](skills/tianditu-webapi/) | 地名搜索 V2.0（八种查询）、驾车/公交规划、地理/逆地理编码、行政区划 V2.0、静态地图 | `npx skills add https://github.com/manchan4869/tianditu-skills --skill tianditu-webapi` |
+| [**tianditu-mapservice**](skills/tianditu-mapservice/) | 瓦片地图服务（OGC WMTS）：8 图层 × 2 投影、GetCapabilities/GetTile、QGIS/Leaflet/MapLibre/Cesium 集成、Cesium 三维瓦片 | `npx skills add https://github.com/manchan4869/tianditu-skills --skill tianditu-mapservice` |
 
 ## 配置
 
-在[天地图控制台](https://cloudcenter.tianditu.gov.cn/center/development/myApp)注册并创建应用（**应用类型选「服务端」**）获取 Key：
+在[天地图控制台](https://cloudcenter.tianditu.gov.cn/center/development/myApp)注册并创建应用获取 Key：
 
 ```bash
 export TIANDITU_KEY="your_key"
 ```
 
-或编辑 `config.json`（模板见 `config.example.json`）。
-
-## 结构
-
-```
-SKILL.md                        # 入口：触发条件/场景判断/配置
-recipes/                        # 场景流程（关键词/周边/区域/路线/静态图/编码）
-references/                     # API 参考（search_v2/geocoding/administrative/transit/drive/static_map/error_codes）
-scripts/xml2json.ps1            # /drive XML 响应 → JSON 转换脚本
-```
+> ⚠️ Key 类型区分：**服务端 API**（webapi）需「服务端」类型 Key；**瓦片/静态图服务**（mapservice）需「浏览器端」类型 Key。用错返回 `301012 权限类型错误`。
 
 ## 文档
 
 - [天地图服务指南](http://lbs.tianditu.gov.cn/server/guide.html)
+- [地图服务（瓦片）](http://lbs.tianditu.gov.cn/server/MapService.html)
 - 坐标系统：CGCS2000/WGS-84（与 GPS 一致，区别于高德 GCJ-02）
 
 ## License
