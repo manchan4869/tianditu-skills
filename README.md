@@ -1,6 +1,6 @@
 # 天地图 Web 服务 API Skill
 
-[![skills.sh](https://skills.sh/b/manchan4869/tianditu-webapi)](https://skills.sh/manchan4869/tianditu-webapi)
+[![skills.sh](https://skills.sh/b/manchan4869/tianditu-webapi)](https://skills.sh/manchan4869/tianditu-webapi/tianditu-webapi)
 
 天地图（国家地理信息公共服务平台）Web 服务 API 的 Agent Skill。零运行时依赖，仅使用 `curl` 调用 REST API。
 
