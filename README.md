@@ -9,7 +9,7 @@
 | Skill | 功能 | 安装 |
 |-------|------|------|
 | [**tianditu-webapi**](skills/tianditu-webapi/) | 地名搜索 V2.0（八种查询）、驾车/公交规划、地理/逆地理编码、行政区划 V2.0、静态地图 | `npx skills add https://github.com/manchan4869/tianditu-skills --skill tianditu-webapi` |
-| [**tianditu-mapservice**](skills/tianditu-mapservice/) | 瓦片地图服务（OGC WMTS）：8 图层 × 2 投影、GetCapabilities/GetTile、QGIS/Leaflet/MapLibre/Cesium 集成、Cesium 三维瓦片 | `npx skills add https://github.com/manchan4869/tianditu-skills --skill tianditu-mapservice` |
+| [**tianditu-mapservice**](skills/tianditu-mapservice/) | 瓦片地图服务（OGC WMTS）：7 图层 × 2 投影、GetCapabilities/GetTile、QGIS/Leaflet/MapLibre/Cesium 集成、Cesium 三维瓦片 | `npx skills add https://github.com/manchan4869/tianditu-skills --skill tianditu-mapservice` |
 
 ## 配置
 

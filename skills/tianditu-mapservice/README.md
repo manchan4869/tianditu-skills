@@ -4,7 +4,7 @@
 
 ## 功能
 
-- 🗺️ 8 个底图图层：矢量(vec)/注记(cva)/影像(img)/影像注记(cia)/地形(ter)/地形注记(cta)/境界(ibo)，各含 CGCS2000 经纬度(_c)与 Web Mercator(_w) 两种投影
+- 🗺️ 7 个底图图层：矢量(vec)/注记(cva)/影像(img)/影像注记(cia)/地形(ter)/地形注记(cta)/境界(ibo)，各含 CGCS2000 经纬度(_c)与 Web Mercator(_w) 两种投影
 - 📡 GetCapabilities 元数据查询 + GetTile 瓦片获取（LAYER/TILEMATRIXSET/FORMAT/TILEMATRIX/TILEROW/TILECOL）
 - 🌐 t0-t7 二级域名轮询
 - 🏔️ Cesium 三维扩展（三维地名 GetTiles / 三维地形 swdx / DEM 高程 DataServer）

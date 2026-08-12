@@ -1,6 +1,6 @@
 ---
 name: tianditu-mapservice
-description: 天地图瓦片地图服务（OGC WMTS）综合指南。支持 8 个底图图层（矢量/注记/影像/地形/境界，各含 CGCS2000 经纬度与 Web Mercator 两种投影）、GetCapabilities 元数据查询、GetTile 瓦片获取、t0-t7 二级域名单、Cesium 三维瓦片。使用场景：在 QGIS/Leaflet/MapLibre/Cesium 中加载天地图底图、计算瓦片行列号、搭建 XYZ 瓦片源、需要国内官方底图做叠加分析。
+description: 天地图瓦片地图服务（OGC WMTS）综合指南。支持 7 个底图图层（矢量/注记/影像/地形/境界，各含 CGCS2000 经纬度与 Web Mercator 两种投影）、GetCapabilities 元数据查询、GetTile 瓦片获取、t0-t7 二级域名单、Cesium 三维瓦片。使用场景：在 QGIS/Leaflet/MapLibre/Cesium 中加载天地图底图、计算瓦片行列号、搭建 XYZ 瓦片源、需要国内官方底图做叠加分析。
 version: 1.0.0
 license: MIT
 homepage: http://lbs.tianditu.gov.cn/server/MapService.html
@@ -41,11 +41,11 @@ homepage: http://lbs.tianditu.gov.cn/server/MapService.html
 ### 1. 元数据查询（GetCapabilities）
 
 ```bash
-curl -s "http://t0.tianditu.gov.cn/img_w/wmts?request=GetCapabilities&service=wmts" \
-  -H "Referer: http://lbs.tianditu.gov.cn" | Select-Object -First 5
+# 保存元数据 XML 到文件（https，避免 WAF 拦截）
+curl -s -o capabilities.xml "https://t0.tianditu.gov.cn/img_w/wmts?request=GetCapabilities&service=wmts"
 ```
 
-返回 XML：包含所有图层的 TileMatrixSet（缩放级别矩阵）、坐标参考系（EPSG:3857 / EPSG:4490）、瓦片尺寸等。可用 `[xml]` 强转后解析。
+返回 XML：包含所有图层的 TileMatrixSet（缩放级别矩阵）、坐标参考系（EPSG:3857 / EPSG:4490）、瓦片尺寸等。解析示例（PowerShell）：`$x = [xml](Get-Content capabilities.xml -Raw)`。
 
 ### 2. 瓦片获取（GetTile）
 
